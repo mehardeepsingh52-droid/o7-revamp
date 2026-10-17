@@ -1,0 +1,326 @@
+/* Site look: black, acid lime, cobalt and hot pink. Sections stack like rounded sheets.
+   Colours, fonts and sizes are tokens on .site; components read them through var(). */
+
+.site {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --bg: #07080a;
+  --surface: #0e1013;
+  --card: #15181d;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --text: #f2f4ee;
+  --muted: #9aa0a6;
+  --dim: #5e646b;
+
+  --accent: #c8ff2e;
+  --on-accent: #0b0d06;
+  --accent-2: #2f6bff;
+  --on-accent-2: #ffffff;
+  --accent-3: #ff4d8d;
+  --on-accent-3: #ffffff;
+  --accent-4: #3be8ff;
+  --accent-glow: color-mix(in srgb, var(--accent) 60%, transparent);
+  --sheet-shadow: rgb(0 0 0 / 0.85);
+
+  --display-weight: 900;
+  --display-tracking: -0.05em;
+  --hero-size: min(10.4vw, 12.6svh);
+  --radius: 28px;
+  --radius-sm: 16px;
+
+  --panel-1: var(--accent);
+  --panel-1-ink: var(--on-accent);
+  --panel-2: var(--accent-2);
+  --panel-2-ink: var(--on-accent-2);
+  --panel-3: var(--accent-3);
+  --panel-3-ink: var(--on-accent-3);
+  --panel-4: color-mix(in srgb, var(--surface) 90%, var(--text));
+  --panel-4-ink: var(--text);
+  --panel-5: var(--text);
+  --panel-5-ink: var(--bg);
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.site :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.site ::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.site .label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site .label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.site .title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6.6vw, 100px);
+  font-weight: var(--display-weight);
+  line-height: 0.95;
+  letter-spacing: var(--display-tracking);
+  text-transform: uppercase;
+}
+
+.site .title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* Buttons (markup comes from components/shared/Button.tsx)
+   .btn       glossy neon key: letters roll up one by one, the arrow loops out and back, a light sweep passes now and then
+   .btn-ghost dark glass with a spinning prism border
+   Everything animates with transform/opacity only, so it stays on the compositor. */
+
+.site .btn,
+.site .btn-ghost {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  height: 58px;
+  padding: 0 7px 0 24px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.45s var(--spring), box-shadow 0.4s;
+}
+
+.site .btn:active,
+.site .btn-ghost:active {
+  transform: scale(0.96);
+}
+
+/* Rolling letters */
+.site .btn-text {
+  display: inline-flex;
+  overflow: hidden;
+  line-height: 1.25;
+}
+
+.site .btn-char {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.55s var(--spring);
+  transition-delay: calc(var(--i) * 18ms);
+}
+
+.site .btn-char::after {
+  content: attr(data-c);
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.site :is(.btn, .btn-ghost):hover .btn-char {
+  transform: translateY(-100%);
+}
+
+/* Arrow chip: one arrow flies out to the top right while its twin flies in */
+.site .btn-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 13px;
+}
+
+.site .btn-icon svg {
+  grid-area: 1 / 1;
+  transition: transform 0.5s var(--spring);
+}
+
+.site .btn-icon svg:last-child {
+  transform: translate(-150%, 150%);
+}
+
+.site :is(.btn, .btn-ghost):hover .btn-icon svg:first-child {
+  transform: translate(150%, -150%);
+}
+
+.site :is(.btn, .btn-ghost):hover .btn-icon svg:last-child {
+  transform: none;
+  transition-delay: 0.08s;
+}
+
+/* Primary: a glossy key in the accent colour */
+.site .btn {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 78%, #fff) 0%, var(--accent) 42%, color-mix(in srgb, var(--accent) 86%, #000) 100%);
+  color: var(--on-accent);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.6),
+    inset 0 -3px 0 rgb(0 0 0 / 0.16),
+    0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent),
+    0 14px 36px -12px var(--accent-glow);
+}
+
+.site .btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.7),
+    inset 0 -3px 0 rgb(0 0 0 / 0.16),
+    0 0 0 1px var(--accent),
+    0 20px 48px -10px var(--accent-glow),
+    0 0 0 6px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.site .btn .btn-icon {
+  background: var(--on-accent);
+  color: var(--accent);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14);
+}
+
+/* A light sweep crosses the key every few seconds */
+.site .btn::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.55), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  animation: btn-sweep 4.5s var(--ease) infinite;
+  pointer-events: none;
+}
+
+@keyframes btn-sweep {
+  0%, 62% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(320%) skewX(-18deg); }
+}
+
+/* Ghost: dark glass with a spinning prism border (an oversized conic gradient behind a 1.5px gap) */
+.site .btn-ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.site .btn-ghost::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -2;
+  width: 140%;
+  aspect-ratio: 1;
+  background: conic-gradient(var(--accent), var(--accent-4), var(--accent-2), var(--accent-3), var(--accent));
+  transform: translate(-50%, -50%);
+  animation: btn-spin 4s linear infinite;
+}
+
+.site .btn-ghost::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  z-index: -1;
+  border-radius: 16.5px;
+  background: color-mix(in srgb, var(--bg) 88%, var(--text));
+  transition: background 0.3s;
+}
+
+.site .btn-ghost:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px -14px color-mix(in srgb, var(--accent-2) 70%, transparent);
+}
+
+.site .btn-ghost:hover::after {
+  background: color-mix(in srgb, var(--bg) 78%, var(--text));
+}
+
+.site .btn-ghost .btn-icon {
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+@keyframes btn-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.site .btn-sm {
+  height: 46px;
+  padding: 0 5px 0 18px;
+  gap: 10px;
+  border-radius: 14px;
+  font-size: 12px;
+}
+
+.site .btn-sm .btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.site .btn-sm.btn-ghost::after {
+  border-radius: 12.5px;
+}
+
+/* Each section is a sheet with rounded top corners that slides over the one before it. */
+.site main > section:not(#top) {
+  position: relative;
+  margin-top: -44px;
+  border-radius: 44px 44px 0 0;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text) 8%, transparent), 0 -30px 60px -24px var(--sheet-shadow);
+}
+
+.site #projects {
+  background:
+    radial-gradient(60% 40% at 50% 62%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 70%),
+    color-mix(in srgb, var(--bg) 75%, var(--surface));
+}
+
+.site #services {
+  background: var(--surface);
+}
+
+.site #about {
+  background:
+    linear-gradient(color-mix(in srgb, var(--text) 2.5%, transparent) 1px, transparent 1px) 0 0 / 100% 64px,
+    var(--bg);
+}
+
+.site #reviews {
+  background:
+    radial-gradient(color-mix(in srgb, var(--text) 6%, transparent) 1px, transparent 1px) 0 0 / 22px 22px,
+    color-mix(in srgb, var(--surface) 70%, var(--card));
+}
+
+.site #contact {
+  background:
+    radial-gradient(50% 60% at 0% 100%, color-mix(in srgb, var(--accent) 9%, transparent), transparent),
+    radial-gradient(40% 50% at 100% 0%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent),
+    color-mix(in srgb, var(--bg) 75%, var(--surface));
+}

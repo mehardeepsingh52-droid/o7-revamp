@@ -1,0 +1,312 @@
+/* Three floating islands: logo, nav, actions. No backdrop blur (it would recompute over the shader). */
+.header {
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: min(1320px, 100% - 24px);
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.island {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--text) 7%, transparent), 0 18px 40px -22px rgb(0 0 0 / 0.75);
+  pointer-events: auto;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+.scrolled .island {
+  border-color: var(--line-strong);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+}
+
+/* Logo: a lime key with "o7" that tilts on hover */
+.logo {
+  gap: 11px;
+  padding: 0 18px 0 7px;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), inset 0 -3px 0 rgb(0 0 0 / 0.15), 0 0 24px -6px var(--accent-glow);
+  transition: transform 0.5s var(--spring);
+}
+
+.logo:hover .mark {
+  transform: rotate(-12deg) scale(1.06);
+}
+
+.word {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+/* Nav: numbered links, a pill that slides to the hovered / current one, labels that roll */
+.nav {
+  gap: 2px;
+  padding: 7px;
+}
+
+.pill {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  transition: transform 0.55s var(--spring), width 0.55s var(--spring), opacity 0.3s;
+  pointer-events: none;
+}
+
+.pill::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 14px;
+  height: 3px;
+  margin-left: -7px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.nav a {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  height: 44px;
+  padding: 12px 16px 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.25s;
+}
+
+.nav a.lit {
+  color: var(--text);
+}
+
+.nav sup {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.roll {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+.roll span {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.5s var(--spring);
+}
+
+.roll span::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.nav a:hover .roll span {
+  transform: translateY(-100%);
+}
+
+/* Actions */
+.actions {
+  gap: 6px;
+  padding: 0 7px;
+}
+
+/* .header .actions … outranks the shared .site .btn display */
+.header .actions .ctaShort {
+  display: none;
+}
+
+.menu {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.burger {
+  display: grid;
+  gap: 4px;
+}
+
+.burger i {
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.4s var(--spring);
+}
+
+.menu[aria-expanded="true"] .burger i:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.menu[aria-expanded="true"] .burger i:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+/* Full-screen mobile menu */
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 110px 24px 40px;
+  background: color-mix(in srgb, var(--bg) 97%, transparent);
+  clip-path: circle(0 at calc(100% - 60px) 44px);
+  visibility: hidden;
+  pointer-events: auto;
+  transition: clip-path 0.7s var(--ease), visibility 0.7s;
+}
+
+.open {
+  clip-path: circle(150% at calc(100% - 60px) 44px);
+  visibility: visible;
+}
+
+.sheet nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(30px, 9vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s, transform 0.6s var(--spring);
+}
+
+.open nav a {
+  opacity: 1;
+  transform: none;
+}
+
+.sheet nav span {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.sheet p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (max-width: 1080px) {
+  .nav a {
+    padding-inline: 12px;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    top: 10px;
+    gap: 6px;
+  }
+
+  .island {
+    height: 56px;
+    border-radius: 18px;
+  }
+
+  .logo {
+    padding-right: 14px;
+  }
+
+  .mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .word {
+    font-size: 14px;
+  }
+
+  .header .actions .ctaLong {
+    display: none;
+  }
+
+  .header .actions .ctaShort {
+    display: inline-flex;
+  }
+
+  .menu {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 390px) {
+  .word {
+    display: none;
+  }
+}

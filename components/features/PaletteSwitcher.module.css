@@ -1,0 +1,170 @@
+/* Deliberately neutral (not themed) so it stays readable on every palette. */
+.switcher {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  font-family: system-ui, sans-serif;
+  color: #f4f4f4;
+  transform: translate(-268px, -50%);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.open {
+  transform: translate(0, -50%);
+}
+
+.panel {
+  order: -1;
+  width: 268px;
+  max-height: min(78vh, 640px);
+  padding: 14px;
+  overflow-y: auto;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-left: 0;
+  border-radius: 0 18px 18px 0;
+  background: #121212;
+  box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.7);
+}
+
+.note {
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+}
+
+.panel ul {
+  display: grid;
+  gap: 4px;
+}
+
+.panel button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+
+.panel button:hover {
+  background: rgb(255 255 255 / 0.06);
+}
+
+.panel .current {
+  border-color: rgb(255 255 255 / 0.4);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.swatch {
+  display: grid;
+  grid-template-columns: repeat(2, 12px);
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 7px;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 10px;
+}
+
+.swatch i {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.name small {
+  font-size: 11px;
+  font-weight: 400;
+  color: #9a9a9a;
+}
+
+/* The tab that sticks out of the left edge */
+.toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 9px;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+  background: #121212;
+  color: inherit;
+}
+
+.mini {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mini i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.toggleLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+}
+
+/* Phones: a small button bottom-left that opens a sheet */
+@media (max-width: 700px) {
+  .switcher {
+    top: auto;
+    bottom: 16px;
+    left: 16px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 8px;
+    transform: none;
+  }
+
+  .panel {
+    display: none;
+    width: min(300px, calc(100vw - 32px));
+    max-height: 60vh;
+    border-left: 1px solid rgb(255 255 255 / 0.14);
+    border-radius: 18px;
+  }
+
+  .open .panel {
+    display: block;
+  }
+
+  .toggle {
+    flex-direction: row;
+    padding: 10px 14px;
+    border-left: 1px solid rgb(255 255 255 / 0.14);
+    border-radius: 999px;
+  }
+
+  .mini {
+    flex-direction: row;
+  }
+
+  .toggleLabel {
+    writing-mode: horizontal-tb;
+    rotate: none;
+  }
+}

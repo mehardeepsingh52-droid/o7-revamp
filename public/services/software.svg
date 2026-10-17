@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#161a20"/><stop offset="1" stop-color="#090b0e"/></linearGradient><radialGradient id="glow" cx=".8" cy=".1" r=".8"><stop offset="0" stop-color="#2f6bff" stop-opacity=".45"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient></defs><rect width="480" height="300" fill="url(#bg)"/><rect width="480" height="300" fill="url(#glow)"/>
+<rect x="50" y="40" width="380" height="230" rx="14" fill="#12151a" stroke="#f2f4ee" stroke-width="2"/>
+<rect x="50" y="40" width="90" height="230" rx="14" fill="#f2f4ee" fill-opacity=".05"/>
+<g fill="#f2f4ee" fill-opacity=".35"><rect x="68" y="66" width="54" height="8" rx="4"/><rect x="68" y="90" width="44" height="8" rx="4"/><rect x="68" y="114" width="50" height="8" rx="4"/><rect x="68" y="138" width="40" height="8" rx="4"/></g>
+<rect x="64" y="84" width="62" height="20" rx="6" fill="#c8ff2e" fill-opacity=".9"/>
+<text x="160" y="76" fill="#f2f4ee" font-family="monospace" font-size="15" font-weight="700">TAX INVOICE · GST</text>
+<g fill="#f2f4ee" fill-opacity=".1"><rect x="160" y="94" width="250" height="26" rx="6"/><rect x="160" y="126" width="250" height="26" rx="6"/><rect x="160" y="158" width="250" height="26" rx="6"/></g>
+<g fill="#f2f4ee" fill-opacity=".55"><rect x="172" y="104" width="90" height="6" rx="3"/><rect x="172" y="136" width="70" height="6" rx="3"/><rect x="172" y="168" width="100" height="6" rx="3"/></g>
+<g fill="#c8ff2e"><rect x="350" y="104" width="46" height="6" rx="3"/><rect x="356" y="136" width="40" height="6" rx="3"/><rect x="344" y="168" width="52" height="6" rx="3"/></g>
+<path d="M160 200h250" stroke="#f2f4ee" stroke-opacity=".3" stroke-dasharray="4 6"/>
+<text x="160" y="236" fill="#9aa0a6" font-family="monospace" font-size="13">CGST + SGST 18%</text>
+<text x="410" y="238" text-anchor="end" fill="#f2f4ee" font-family="monospace" font-size="22" font-weight="700">₹48,260</text>
+</svg>

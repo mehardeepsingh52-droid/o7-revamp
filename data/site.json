@@ -1,0 +1,161 @@
+{
+  "source": "https://www.o7solutions.in",
+  "crawledAt": "2026-10-16",
+  "company": {
+    "name": "O7 Solutions",
+    "type": "IT services / software development agency",
+    "tagline": "Own The Edge",
+    "city": "Jalandhar",
+    "state": "Punjab",
+    "country": "India",
+    "geo": { "lat": 31.3137145, "lng": 75.591036 },
+    "googleMapsPlace": "https://maps.app.goo.gl/VizrLMwyzDeRovgD7",
+    "streetAddress": null,
+    "certification": "ISO 9001:2015",
+    "teamSize": "35+",
+    "support": "24x6",
+    "foundedCopyright": "2019",
+    "claims": {
+      "experienceYears": ["5+ (meta + stats box)", "15+ (about text)"],
+      "clients": ["150 (stats box)", "1500+ (about intro)"],
+      "projectsDone": "200+"
+    }
+  },
+  "contact": {
+    "email": "enquiry@o7solutions.in",
+    "phones": ["+91 95019 99044", "+91 62845 45231"],
+    "landline": "+91 181 415 9044",
+    "social": {
+      "facebook": "https://www.facebook.com/o7solutions/",
+      "instagram": "https://www.instagram.com/o7_solutions/",
+      "twitter": "https://twitter.com/o7_solutions",
+      "linkedin": "https://www.linkedin.com/company/26619023"
+    },
+    "otherLinks": {
+      "quiz": "https://quiz.o7solutions.in/",
+      "legacyQuizPanel": "http://o7stu.ksesystem.com/quiz_panel_o7",
+      "googleForm": "https://forms.gle/m8JnaPNtvdF7n4iu9"
+    }
+  },
+  "services": [
+    {
+      "slug": "mobile-development",
+      "name": "Mobile App Development",
+      "offerings": ["Android apps", "iOS apps", "Hybrid / cross-platform apps"],
+      "benefits": ["Business exposure", "More sales", "Marketing channel", "Always-on customer service"],
+      "children": ["android-app-development", "ios-app-development"]
+    },
+    {
+      "slug": "web-development",
+      "name": "Web Development",
+      "offerings": ["E-commerce", "CMS development", "Custom development", "ERP solutions", "Interactive web development"],
+      "benefits": ["Professionalism", "Ease of access", "Reach abroad", "Credibility"],
+      "children": ["erp-software"]
+    },
+    {
+      "slug": "software-development",
+      "name": "Software Development",
+      "offerings": ["GST / billing software", "Inventory software", "CRM software", "Custom software"],
+      "process": "Waterfall SDLC: requirements, design, development, testing, implementation, maintenance",
+      "benefits": ["Simplify tasks", "Customer relationships", "Competitive advantage", "Sales leads"],
+      "children": ["gst-billing-software", "crm-software", "erp-software"]
+    },
+    {
+      "slug": "digital-marketing",
+      "name": "Digital Marketing",
+      "offerings": ["SEO", "Social media marketing", "PPC", "Content marketing", "Email marketing", "Google Analytics", "Google Ads"],
+      "benefits": ["Cost effective", "Better revenue", "Audience interaction", "Better ROI"],
+      "children": ["seo-services", "google-adwords-services"]
+    },
+    {
+      "slug": "it-integration",
+      "name": "IT Integration",
+      "offerings": ["Network security", "Structured cabling", "Wireless infrastructure", "Network design & implementation (LAN/WAN/VPN/cloud)"],
+      "benefits": ["Data accessibility", "Better communication", "Productivity", "One-stop service"]
+    },
+    {
+      "slug": "seo-services",
+      "name": "SEO Services",
+      "process": ["Analysis", "Strategy", "Implementation", "Alignment"],
+      "offerings": ["Keyword research", "Link building", "Technical SEO", "Local SEO / Google Business Profile", "SEO audit", "E-commerce SEO", "On-page / off-page SEO"]
+    },
+    {
+      "slug": "google-adwords-services",
+      "name": "Google Ads (PPC)",
+      "process": ["Onboard (Google & Bing)", "Optimize (dedicated account manager)", "Support & training"],
+      "offerings": ["Search ads", "Display ads", "Shopping ads", "Remarketing ads", "Video ads"]
+    },
+    {
+      "slug": "crm-software",
+      "name": "CRM Software",
+      "offerings": ["CRM consulting", "CRM implementation", "CRM customization", "CRM portal development"]
+    },
+    {
+      "slug": "gst-billing-software",
+      "name": "GST Billing Software",
+      "product": "Go GST Bill (mobile access)",
+      "features": ["Invoices", "E-invoices", "Delivery challans", "Estimates", "Bills of supply", "Single dashboard"],
+      "offerings": ["GST/billing software", "Inventory management", "Custom software"]
+    },
+    {
+      "slug": "erp-software",
+      "name": "ERP Software",
+      "modules": ["Sales", "HR & payroll", "Purchase", "Finance"]
+    },
+    {
+      "slug": "ios-app-development",
+      "name": "iOS App Development",
+      "offerings": ["Custom iOS development (Swift / Objective-C)", "iOS UI/UX design", "Multi-platform development"]
+    },
+    {
+      "slug": "android-app-development",
+      "name": "Android App Development",
+      "offerings": ["Custom Android apps", "Hybrid apps", "iOS apps"]
+    }
+  ],
+  "extraServicesMentioned": ["Domain registration", "Hosting", "SEM", "Graphic design", "SMS services", "Voice services", "UI/UX", "Cloud computing"],
+  "process360": ["Plan", "Design", "Develop", "Marketing"],
+  "values": {
+    "mission": "Become the best in the world of IT with excellent, affordable, transparent service",
+    "vision": "Innovate to grow clients' businesses; build trust and long-term relationships",
+    "goal": "Best possible solutions across web, apps, software, marketing, design, SMS and voice"
+  },
+  "portfolio": [
+    { "name": "NGC Energy India Pvt Ltd.", "tags": ["Organisation"], "url": "https://www.ngcenergy.in/" },
+    { "name": "Moon Walker", "tags": ["Mobile App"] },
+    { "name": "Government Polytechnic College, Behram", "tags": ["Educational", "Website"], "url": "http://new.gpcbehram.ac.in/" },
+    { "name": "Parent Teacher Communication App", "tags": ["Mobile App"] },
+    { "name": "Sardarni Upto Date", "tags": ["E-commerce", "Website"], "url": "https://sardarniuptodate.com/" },
+    { "name": "Mahalakshmi Plastic", "tags": ["E-commerce", "Website"], "url": "https://mahalakshmiplastic.com/" },
+    { "name": "The Speed NGO", "tags": ["Organisation", "Website"], "url": "https://thespeedngo.com/" },
+    { "name": "DLM School", "tags": ["Organisation", "Website"], "url": "https://dlmschoolgsp.in/" },
+    { "name": "Trumath", "tags": ["Educational", "Website"], "url": "https://trumath.in/" },
+    { "name": "VS Associates", "tags": ["Organisation", "Website"], "url": "https://vsassociates.co.in/" },
+    { "name": "Right Click Jobs", "tags": ["Organisation", "Website"], "url": "https://rightclickjobs.com/" },
+    { "name": "O7 Tracking", "tags": ["App", "Website"] },
+    { "name": "Tracking App", "tags": ["Mobile App"] },
+    { "name": "Royale Dignity", "tags": ["Organisation", "Website"], "url": "https://royaledignity.com/" },
+    { "name": "Namdhari Homeopathic", "tags": ["Organisation", "Website"], "url": "http://namdharihomeopathic.com/" },
+    { "name": "SK Traders Fitness", "tags": ["E-commerce", "Website"], "url": "http://sktradersfitness.com/" },
+    { "name": "Aspella De Stella", "tags": ["Website", "Organisation"], "url": "https://aspelladestella.com" },
+    { "name": "Santokh Singh Chaudhary", "tags": ["Organisation"], "url": "https://sschaudhary.com/" },
+    { "name": "United Engineers", "tags": ["Website", "Organisation"], "url": "https://unitedengineershsp.com/" },
+    { "name": "UCMAS Punjab", "tags": ["Educational"], "url": "http://www.ucmaspunjab.in/ucmaspunjab/" },
+    { "name": "Hymoon Tours", "tags": ["Tour & Travel", "Website"], "url": "https://hymoontours.com/" }
+  ],
+  "portfolioFilters": ["E-commerce", "Educational", "Organisation", "Tour & Travel", "Websites", "Apps"],
+  "testimonials": [
+    { "client": "Hymoon Tours", "project": "Website revamp + SEO + SMM", "gist": "Rebuilt their old site as requested, friendly team, handled everything end to end." },
+    { "client": "St. Soldier", "project": "Mobile app", "gist": "Professional, responsive support by phone and email, focused on ROI." },
+    { "client": "Namdhari Homeopathic", "project": "Informative website", "gist": "Creative design, affordable, guided them through every step." },
+    { "client": "Aspella De Stella", "project": "WordPress website", "gist": "Exceeded expectations on design, colours and responsiveness." },
+    { "client": "HR International", "project": "Security app + ERP", "gist": "Delivered ahead of schedule, visited on site when needed." }
+  ],
+  "leadForm": {
+    "endpoint": "POST /sendemail/send",
+    "fields": ["email (Gmail only)", "name", "country", "phone", "subject (service)", "message"],
+    "subjects": ["Web Development", "Mobile Development", "Software Development", "IT Integration", "Digital Marketing", "UI/UX", "Cloud Computing", "Others"],
+    "spamProtection": "Google reCAPTCHA + hidden honeypot field + Laravel CSRF token"
+  },
+  "analytics": { "ga4": "G-MW09BT8C5W", "widgets": ["Elfsight (lazy-loaded app 41120ae8-...)"] }
+}
